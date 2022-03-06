@@ -1,0 +1,67 @@
+﻿@model Mandate
+
+@{
+    ViewData["Title"] = "Usuń mandat";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Usuń mandat @Model.RegistrationNumber</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <img id="PictureUrlPreview" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegistrationNumber" class="control-label"></label>
+                        <input asp-for="RegistrationNumber" class="form-control text-uppercase" readonly/>
+                        <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Street" class="control-label"></label>
+                        <input asp-for="Street" class="form-control" readonly/>
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label"></label>
+                        <input asp-for="Date" class="form-control" disabled/>
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" readonly/>
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PictureUrl" class="control-label"></label>
+                        <input asp-for="PictureUrl" class="form-control" readonly/>
+                        <span asp-validation-for="PictureUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Paid" class="control-label"></label>
+                        <input asp-for="Paid" class="form-control" disabled/>
+                        <span asp-validation-for="Paid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="MandateId"/>
+                            <input type="submit" value="Potwierdź" class="btn btn-danger float-right" />
+                        </form>
+                            <a class="btn btn-secondary" asp-action="Index">Powrót</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('PictureUrlPreview');
+            output.src = $("#PictureUrl").val();
+        })
+    </script>
+}

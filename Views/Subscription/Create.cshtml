@@ -1,0 +1,62 @@
+﻿@model Subscription
+@using Projekt.Data
+
+@{
+    ViewData["Title"] = "Dodaj nowy Abonament";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Dodaj nowy Abonament</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="RegistrationNumber" class="control-label"></label>
+                        <input asp-for="RegistrationNumber" class="form-control text-uppercase" />
+                        <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Street" class="control-label"></label>
+                        <input asp-for="Street" class="form-control" />
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" required/>
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubscriptionVariant" class="control-label"></label>
+                        <select asp-for="SubscriptionVariant" class="form-control" asp-items="Html.GetEnumSelectList<SubscriptionVariant>()"></select>
+                        <span asp-validation-for="SubscriptionVariant" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customers.IdNumber" class="control-label"></label>
+                        <select asp-for="CustomersId" class="form-control" asp-items="ViewBag.CustomersId" required></select>
+                        <span asp-validation-for="CustomersId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Paid" class="control-label"></label>
+                        <input asp-for="Paid" class="form-control" />
+                        <span asp-validation-for="Paid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Active" class="control-label"></label>
+                        <input asp-for="Active" class="form-control" />
+                        <span asp-validation-for="Active" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Utwórz" class="btn btn-success float-right" />
+                        <a class="btn btn-secondary" asp-action="Index">Powrót</a>
+                        <a class="btn btn-secondary" asp-controller="Customers" asp-action="Create">Utwórz nowego klienta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

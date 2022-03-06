@@ -1,0 +1,76 @@
+﻿@model Subscription
+
+@{
+    ViewData["Title"] = "Usuń Abonament";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Usuń Abonament @Model.RegistrationNumber</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="RegistrationNumber" class="control-label"></label>
+                    <input asp-for="RegistrationNumber" class="form-control text-uppercase" readonly />
+                    <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Street" class="control-label"></label>
+                    <input asp-for="Street" class="form-control" readonly />
+                    <span asp-validation-for="Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" disabled/>
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" class="form-control" disabled/>
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubscriptionVariant" class="control-label"></label>
+                    <input asp-for="SubscriptionVariant" class="form-control" readonly />
+                    <span asp-validation-for="SubscriptionVariant" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customers.IdNumber" class="control-label"></label>
+                    <input asp-for="Customers.IdNumber" class="form-control" readonly />
+                    <span asp-validation-for="CustomersId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customers.Name" class="control-label"></label>
+                    <input asp-for="Customers.Name" class="form-control" readonly />
+                    <span asp-validation-for="CustomersId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customers.Surname" class="control-label"></label>
+                    <input asp-for="Customers.Surname" class="form-control" readonly />
+                    <span asp-validation-for="CustomersId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Paid" class="control-label"></label>
+                    <input asp-for="Paid" class="form-control" readonly />
+                    <span asp-validation-for="Paid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Active" class="control-label"></label>
+                    <input asp-for="Active" class="form-control" disabled />
+                    <span asp-validation-for="Active" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="SubscriptionId" />
+                        <input type="submit" value="Potwierdź" class="btn btn-danger float-right" />
+                    </form>
+                    <a class="btn btn-secondary" asp-action="Index">Powrót</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

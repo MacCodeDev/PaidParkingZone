@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Użytkownicy";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <body>
+        <h1>Spis Wszystkich Użytkowników</h1>
+
+        <div class="row">
+            <div class="col-md-12 ">
+                <table class="table">
+                    <thead></thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                        <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    </tr>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="align-middle">
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td class="align-middle">
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td class="align-middle">
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </body>
+}
